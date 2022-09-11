@@ -3,8 +3,8 @@ import React from 'react';
 export function Homepage(){
     const [dateState, setDateState] = React.useState(new Date());
     const dayPassed = (100 * dateState.getHours()/24).toFixed(2) + "%";
-    const monthPassed = (100 * dateState.getDay() / 30 ).toFixed(2) + "%";
-    const yearPassed = (100 * getYearPassed() / 365).toFixed(2) + "%";
+    const monthPassed = (100 * dateState.getDate() / new Date( dateState.getFullYear(), dateState.getMonth()+1, 0).getDate() ).toFixed(2) + "%";
+    const yearPassed = (100 * getYearPassed() / (isLeapYear()? 366 : 365)).toFixed(2) + "%";
 
     React.useEffect(() => {
         setInterval(() => setDateState(new Date()), 500);
@@ -46,7 +46,7 @@ export function Homepage(){
         return (
             <div>
                 <p className="lh-lg"><span className="align-content-center">
-                    Time past this Month: {100 * dateState.getDay()/30}%
+                    Time past this Month: {monthPassed}
                 </span></p>
                 <div className="time row p-2 mb-2 border  border-3
             rounded col">
