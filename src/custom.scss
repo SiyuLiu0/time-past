@@ -1,0 +1,18 @@
+// Override default variables before the import
+$body-bg: #FFEDBC;
+
+// Import Bootstrap and its default variables
+@import '~bootstrap/scss/bootstrap.scss';
+.time{
+  height: 50px;
+  border-color: #595d62 !important;
+}
+
+.passed{
+  border-color: #595d62 !important;
+  background-color: #595d62 !important;;
+}
+
+.left{
+  border-color: #595d62 !important;
+}
